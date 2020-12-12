@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @MapperScan(basePackages = {"com.yh.tx.server2.dao"})
-@ComponentScan(value = "com.yh.global.tx")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.yh.global.tx"})
 public class ServerApp2 {
 
     public static void main(String[] args) {

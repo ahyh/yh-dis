@@ -1,6 +1,7 @@
 package com.yh.tx.server2.service.impl;
 
 import com.yh.global.tx.annotations.GlobalTransaction;
+import com.yh.global.tx.util.MyRestTemplate;
 import com.yh.tx.server2.dao.SalaryMapper;
 import com.yh.tx.server2.entity.Salary;
 import com.yh.tx.server2.service.SalaryService;
@@ -17,14 +18,14 @@ public class SalaryServiceImpl implements SalaryService {
     private SalaryMapper salaryMapper;
 
     @Autowired
-    private RestTemplate restTemplate;
+    private MyRestTemplate restTemplate;
 
     @GlobalTransaction(isStart = true)
     @Transactional(rollbackFor = Exception.class)
     @Override
     public int update(Salary salary) {
         Integer update = salaryMapper.update(salary);
-        String forObject = restTemplate.getForObject("http://localhost:8091/user/update/qqqq.yyyas@sina.com", String.class);
+        String forObject = restTemplate.get("http://localhost:8091/user/update/qqaqq.yyyas@sina.com");
         System.out.println(forObject);
         int j = 100 / 0;
         return update;

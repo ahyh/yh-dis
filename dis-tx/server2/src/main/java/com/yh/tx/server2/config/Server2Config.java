@@ -1,5 +1,6 @@
 package com.yh.tx.server2.config;
 
+import com.yh.global.tx.util.MyRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -8,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 public class Server2Config {
 
     @Bean
-    public RestTemplate restTemplate(){
-        return new RestTemplate();
+    public MyRestTemplate restTemplate(){
+        return new MyRestTemplate();
     }
 }
